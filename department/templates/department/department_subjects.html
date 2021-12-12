@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='subject-list'>
+    <h3><a href="{% url 'department:details' pk=department.pk %}">{{ department.name }}</a></h3>
+    <br>
+    <br>
+    {% for subject in subjects %}
+    <h3><a href="{% url 'subjects:details' pk=subject.pk %}">{{ subject.title }}</a></h3>
+    <p style='white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 15ch;'>
+        {{subject.message}}
+    </p>
+    {% empty %}
+    <h1>No subjects till now</h1>
+    {% endfor %}
+</div>
+
+{% endblock %}

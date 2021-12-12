@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form method="POST" class='signup-form' enctype="multipart/form-data">
+    <h1>Create New Subject Here...</h1>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

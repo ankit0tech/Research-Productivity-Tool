@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class=''>
+
+    {% if subject_list %}
+    {% for subject in subject_list %}
+    <div class='subject-list'>
+        <h1><a href="{% url 'subjects:details' pk=subject.pk %}">{{ subject.title }}</a></h1>
+        <h5>{{ subject.details }}</h5>
+        <div class='date'>
+            <p>{{ subject.created_at }}</p>
+        </div>
+        {% if user == subject.user %}
+        <a class='btn' href="{% url 'subjects:update' pk=subject.pk %}"><button>Update Subject</button></a>
+        <a class='btn' href="{% url 'subjects:delete' pk=subject.pk %}"><button>Delete</button></a>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h3>No subjects till now</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}

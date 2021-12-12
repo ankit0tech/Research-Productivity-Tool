@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='subject-list'>
+    <h3><a href="{% url 'department:details' pk=department.pk %}">{{ department.name }}</a></h3>
+    <!-- Here student is UserProfile not User -->
+    {% for student in students %}
+    <a href="{% url 'accounts:profile' pk=student.user.pk %}">
+        <h4>Name : {{ student.username }}</h4>
+    </a>
+    <h5>LinkedIn profile: {{student.linkedin_url }}</h5>
+    <a href="{% url 'accounts:subjects' pk=student.user.pk %}"><button>Subjects</button></a>
+
+    {% empty %}
+    <h1>No Students registered to this department till now</h1>
+    {% endfor %}
+</div>
+
+{% endblock %}

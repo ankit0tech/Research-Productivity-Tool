@@ -1,0 +1,122 @@
+.signup-form {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 80%;
+  /* min-height: 420px; */
+  /* background: #24252a; */
+  background: black;
+  color: white;
+  /* top: 50%; */
+  /* left: 50%; */
+  position: relative;
+  /* position: absolute; */
+  /* transform: translate(-50%, -50%); */
+  box-sizing: border-box;
+  /* padding: 0% 5% 0% 5%; */
+  padding: 70px 30px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 320px;
+}
+
+.signup-form h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  /* text-align: center; */
+  font-size: 28px;
+}
+
+.signup-form label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+/* label::after {
+  content: "\a";
+  white-space: pre;
+} */
+
+.signup-form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.signup-form input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="file"],
+input[type="number"],
+textarea,
+select {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 18px;
+}
+
+textarea {
+  height: 150px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* textarea::before {
+  content: "\a";
+  white-space: pre;
+} */
+
+option {
+  border: none;
+  /* border-bottom: 1px solid #fff; */
+  /* background: transparent; */
+  /* outline: none; */
+  /* height: 40px; */
+  border-radius: 15px;
+  color: #fff;
+  background-color: black;
+  /* font-size: 38px; */
+}
+
+.signup-form button[type="submit"] {
+  width: 100%;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #ff6600;
+  color: white;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.signup-form button[type="submit"]:hover {
+  cursor: pointer;
+  background: #ff6207;
+  color: #000;
+  top: 12px;
+}
+
+.signup-form a {
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.signup-form a:hover {
+  color: #ffc107;
+}
+
+.signup-form .error {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0px 0px;
+  color: white;
+}

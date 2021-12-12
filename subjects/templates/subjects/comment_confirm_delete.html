@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class='signup-form' method="POST">
+    <h3>Do you want to delete comment ?</h3>
+    <h3>{{ comment.text }}</h3>
+    {% csrf_token %}
+    <button class='btn btn-danger btn-primary' type="submit">Confirm Delete</button>
+    <a class='btn btn-primary' href="{% url 'subjects:details' pk=comment.subject.pk %}">Cancel</a>
+</form>
+
+{% endblock %}

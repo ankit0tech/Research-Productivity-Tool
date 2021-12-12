@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='post-list signup-form'>
+    <form method="POST">
+        <h3>Do you want to delete subject ?</h3>
+        <h3>{{ subject.title }}</h3>
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a class='button' href="{% url 'subjects:list' %}"><button>Cancel</button></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='subject-list comment-form'>
+    <h1>{{ subject.title }}</h1>
+    <h4>{{ subject.details }}</h4>
+    <div class='date'>
+        <p>{{ subject.created_at }}</p>
+    </div>
+    <p>by: {{ subject.user }}</p>
+
+    {% if user == subject.user %}
+    <a href="{% url 'subjects:update' pk=subject.pk %}"><button>update</button></a>
+    <a href="{% url 'subjects:delete' pk=subject.pk %}"><button>delete</button></a>
+    {% endif %}
+
+
+    {% if user.is_authenticated %}
+    <button onclick="myFunction('new_comment')">Add Comment</button>
+    <div id='new_comment'></div>
+    {% endif %}
+
+    <h5>comments:</h5>
+    {% load mptt_tags %}
+    <div class='comment-list'>
+        {% recursetree subject.comments.all %}
+        <div id="{{ node.id }}" class="my-2 p-2">
+            <div class="d-flex justify-content-between">
+                <h5>{{ node.text }}</h5>
+            </div>
+            <div style='justify-self: end;'>{{ node.created_at }}</div>
+            </hr>
+            {% if user.is_authenticated %}
+            <button onclick="myFunction('{{node.id}}')">Reply</button>
+            {% endif %}
+            {% if user == node.user %}
+            <a href="{% url 'subjects:delete_comment' pk=node.pk %}"><button>delete</button></a>
+            {% endif %}
+            {% if not node.is_leaf_node %}
+            <div class='children pl-2 pl-md-5'>
+                {{ children }}
+            </div>
+            {% endif %}
+
+        </div>
+        {% endrecursetree %}
+    </div>
+
+</div>
+
+<script>
+    function formExit() {
+        document.getElementById("newForm").remove();
+    }
+
+    function myFunction(id) {
+        if (document.contains(document.getElementById("newForm"))) {
+            document.getElementById("newForm").remove();
+        }
+
+        var a = document.getElementById(id);
+        var select_option = '';
+        if (id != 'new_comment') {
+            var select_option = '<label hidden for="id_parent">Parent:</label> <select hidden name="parent" required="false" id="id_parent">\
+                        <option value="'+ id + '" selected="' + id + '"></option>\
+                        </select>'
+        }
+        a.insertAdjacentHTML('afterend', '<form method = "POST" id="newForm" class= "form-insert py-2 form-field" >\
+                <div class="d-flex justify-content-between"></div>\
+                <textarea id="text" name="text" cols="50" rows="3" required="" id="id_text" autofocus></textarea>'+ select_option + '\
+                {% csrf_token %}\
+                <br>\
+                <button type="submit">Save</button>\
+                <button type="button" onclick="formExit()"">Close</button>\
+            </form>');
+        document.getElementById("text").focus();
+    }
+
+    $('#myForm').trigger("reset");
+</script>
+
+{% endblock %}

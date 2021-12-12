@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Type your comment here </h1>
+
+<form method="POST" class='jumbotron'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class='btn btn-primary' type="submit" value="Save">
+</form>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='subject-list'>
+    <h2>{{ department.name }}</h2>
+    <p>{{ department.description }}</p>
+    <a href="{% url 'department:subjects' pk=department.pk %}"><button>Show all subjects</button></a>
+    <a href="{% url 'department:students' pk=department.pk %}"><button>Show all students</button></a>
+
+</div>
+
+{% endblock %}

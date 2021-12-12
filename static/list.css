@@ -1,0 +1,90 @@
+.subject-list {
+  padding: 10px;
+  margin-top: 3%;
+  width: 100%;
+  height: fit-content;
+  /* background: rgb(59, 57, 59); */
+  background: black;
+  color: white;
+  top: 50%;
+  left: 50%;
+  /* position: inherit; */
+  /* transform: translate(-50%, -50%); */
+  box-sizing: border-box;
+  /* padding: 70px 30px; */
+  border-radius: 20px;
+}
+
+/* .comment-form {
+  width: fit-content;
+} */
+
+.subject-list h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  /* text-align: center; */
+  font-size: 28px;
+}
+
+.subject-list label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.subject-list input {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.subject-list button {
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  padding: 6px 10px 6px 10px;
+  height: 40px;
+  width: fit-content;
+  background: #ff6600;
+  color: white;
+  /* background: white; */
+  /* color: rgb(59, 57, 59); */
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.subject-list button:hover {
+  cursor: pointer;
+  /* background: #ff6207; */
+  color: #000;
+  top: 12px;
+}
+
+.subject-list a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  /* font-size: 12px; */
+  /* line-height: 20px; */
+}
+
+.subject-list a:hover {
+  color: #ff6600;
+}
+
+.error {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0px 0px;
+  color: white;
+}
+
+.profile_pic {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  position: relative;
+  /* top: -50px; */
+  /* left: calc(50% - 50px); */
+}
