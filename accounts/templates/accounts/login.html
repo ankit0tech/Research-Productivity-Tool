@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="my-form">
+    <img class="avatar" src="{% static 'user_icon.png' %}" alt="user icon">
+    <h1>Login Here</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        <p class="error" id='user_invalid'>Username or password don't match to any account</p>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <p class = "error text-danger" id='user_inactive'>User {username} is not active</p>
+        <br>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <a href="{% url 'password_reset' %}">Forgot Password</a> <br>
+        <a href="{% url 'accounts:signup' %}">Sign up</a>
+    </form>
+</div>
+
+{% if active %}
+<script>
+    inactive = document.getElementById('user_inactive');
+    inactive.style.display = "none";
+</script>
+{% endif %}
+
+{% if valid %}
+<script>
+    error = document.getElementById('user_invalid');
+    error.style.display = "none";
+</script>
+{% endif %}
+
+{% endblock %}

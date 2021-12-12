@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='signup-form'>
+    {% if registered %}
+    <h1>Thank you for registering...</h1>
+
+    {% else %}
+    <h1>To register fill the form</h1>
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{user_form.as_p}}
+        {{profile_form.as_p}}
+        <button type="submit">Register</button>
+        <a href="{% url 'accounts:login' %}">Already have a account ?</a>
+    </form>
+
+    {% endif %}
+</div>
+{% endblock %}

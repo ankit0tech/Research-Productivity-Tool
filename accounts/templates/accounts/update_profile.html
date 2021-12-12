@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class='signup-form'>
+    <h1>Fill the form to update your profile</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{user_form.as_p}}
+        {{profile_form.as_p}}
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+{% endblock %}
