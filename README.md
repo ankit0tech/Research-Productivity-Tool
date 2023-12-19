@@ -28,3 +28,6 @@ Research and students list can be browsed from department name also.
  - delete all catch files and database also 
  - create super user using python manage.py createsuperuser
  - runserver using python manage.py runserver command
+
+
+## Test Update
